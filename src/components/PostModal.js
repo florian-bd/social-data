@@ -9,7 +9,7 @@ const PostModal = ({post, nextPost, previousPost, close, isDeleted}) => {
   const selectPost = useContext(SelectPostContext);
   const [width, measuredRef] = useRefWidth();
   return (
-    <Modal visible={!!post} onCancel={close} footer={null} destroyOnClose>
+    <Modal visible={!!post} onCancel={close} footer={null} width="90%" destroyOnClose>
       <Row type="flex" align="middle">
         <Col span={2} className={styles.arrowContainer}>
           <Button
