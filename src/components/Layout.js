@@ -10,11 +10,9 @@ const DEFAULT_COL_PROPS = {
 };
 
 const Layout = ({children}) => (
-  <>
-    <Row>
-      <Col {...DEFAULT_COL_PROPS}>{children}</Col>
-    </Row>
-  </>
+  <Row>
+    <Col {...DEFAULT_COL_PROPS}>{children}</Col>
+  </Row>
 );
 
 export default Layout;

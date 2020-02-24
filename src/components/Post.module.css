@@ -1,0 +1,7 @@
+.buttons {
+  float: right;
+  margin-top: 12px;
+}
+.buttons > * {
+  margin-left: 10px;
+}

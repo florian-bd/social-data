@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import useListFetcher from './useListFetcher';
 
 const ListFetcher = ({fetch, children}) => {

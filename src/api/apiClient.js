@@ -6,7 +6,7 @@ class ApiClient {
   };
 
   getImpacters = async () => {
-    return apiFetch(`/impacters`);
+    return await apiFetch(`/impacters`);
   };
 
   getPosts = async () => {
@@ -14,39 +14,28 @@ class ApiClient {
   };
 
   updatePost = async post => {
-    const postWithoutId = {...post};
-    delete postWithoutId.id;
-    try {
-      return fetch(`/posts/${post.id}`, {
-        method: 'PUT',
-        body: JSON.stringify(postWithoutId),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-    } catch (e) {
-      return {
-        error: e,
-      };
-    }
+    return apiFetch(`/posts/${post.id}`, {
+      method: 'PUT',
+      body: JSON.stringify(post),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
   };
 
   deletePost = async id => {
-    try {
-      return fetch(`/posts/${id}`, {
-        method: 'DELETE',
-      });
-    } catch (e) {
-      return {
-        error: e,
-      };
-    }
+    return apiFetch(`/posts/${id}`, {
+      method: 'DELETE',
+    });
   };
 }
 
 const apiFetch = async (...args) => {
   try {
     const data = await fetch(...args);
+    if (!data) {
+      return;
+    }
     return await data.json();
   } catch (e) {
     return {

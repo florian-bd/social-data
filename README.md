@@ -1,3 +1,34 @@
+# About the assignment
+
+In this assignement, I focused on the component structure in React.
+I have a lot of experience in Redux and I really like it, but here I wanted to have fun with Hooks.
+
+I used Ant Design to help me with the layout/design and the Modal component.
+
+For visual testing, I added Storybook and I even added Storyshots to help catch unintended side effects. With Redux it's usually sufficient to test UI components because they have just props. With Hooks they have more logic so it would make sense to test with state changes, etc... For example with Enzyme.
+
+For images, I chose to load the image with the same width available and adjust height to preserve ratio. There are many things to consider here, especially if using a CDN.
+
+There are many things that can be improved, here are some:
+
+- A user should only see their posts, that is why my initial page is a user selection, but in a real world there should be an authentication of course
+
+- Layout, I chose a single column layout, it is possible to have more of a grid layout, but it can become complex with images of arbitray height. Since we don't have much info about the images, I chose the simplicity here
+
+- Data fetching and error handling, the user should see when an synchronous task is going on and when an error occurs
+
+- URL management, URLs don't update, this would be useful for browser back button for example and deep linking
+
+- Rendering optimization, not all posts should be rendered in the DOM. Especially with all the images.
+
+- Build optimization, I didn't look into that here but it's something to be aware of for production
+
+- State management, I used hooks but if the app is growing a state management library could help
+
+- Typescript, it can slow down a bit but it's better experience and maintainability over time
+
+- Server side rendering, for performance
+
 ### Assignment
 
 We need a web site for our impacters to administer their posts.
@@ -73,13 +104,3 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
-
-
-
-# Remarks
-
-User login
-
-Build optimization
-State management
-URL management

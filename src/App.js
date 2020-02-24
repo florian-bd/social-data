@@ -1,5 +1,4 @@
 import React, {createContext, useState} from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Impacters from './components/Impacters';
 import Layout from './components/Layout';
@@ -12,12 +11,13 @@ function App() {
 
   const selectUser = user => {
     apiClient.setUserId(user.id);
-    setSelectedUser(user.id);
+    setSelectedUser(user);
   };
 
   if (!selectedUser) {
     return (
       <Layout>
+        <h1>Select an Impacter to start</h1>
         <SelectUserContext.Provider value={selectUser}>
           <Impacters />
         </SelectUserContext.Provider>
@@ -25,7 +25,7 @@ function App() {
     );
   }
 
-  return <PostsLayout />;
+  return <PostsLayout user={selectedUser} />;
 }
 
 export default App;
