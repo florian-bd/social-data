@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import Posts from './Posts';
+import Posts from './Posts/Posts';
 import Layout from './Layout';
 import apiClient from '../api/apiClient';
 import SelectPostContext from '../context/SelectPostContext';
-import PostModal from './PostModal';
+import PostModal from './PostModal/PostModal';
 import useListFetcher from './useListFetcher';
 import {getNext, getPrevious} from '../util/list';
 import DeletePostContext from '../context/DeletePostContext';
@@ -18,6 +18,7 @@ const PostsLayout = ({user}) => {
     fetch: apiClient.getPosts,
     dependency: deletedPost,
   });
+
   const selectPost = post => {
     setNextPost(post && getNext({list: posts, item: post}));
     setPreviousPost(
@@ -29,6 +30,7 @@ const PostsLayout = ({user}) => {
     );
     setSelectedPost(post);
   };
+
   const editPost = async post => {
     await apiClient.updatePost(post); // TODO should handle error
     setPosts(
@@ -41,10 +43,12 @@ const PostsLayout = ({user}) => {
       }),
     );
   };
+
   const deletePost = async post => {
     await apiClient.deletePost(post.id); // TODO should handle error
     setDeletedPost(post);
   };
+
   return (
     <Layout>
       <h1>Here are all your posts {user.name}</h1>

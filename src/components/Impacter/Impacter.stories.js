@@ -1,7 +1,7 @@
 import React from 'react';
 import {action} from '@storybook/addon-actions';
 import Impacter from './Impacter';
-import SelectUserContext from '../context/SelectUserContext';
+import SelectUserContext from '../../context/SelectUserContext';
 
 export default {
   title: 'Impacter',

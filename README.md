@@ -2,10 +2,13 @@
 
 In this assignement, I focused on the component structure in React.
 I have a lot of experience in Redux and I really like it, but here I wanted to have fun with Hooks.
+I feel that things are quite simple with Hooks and it's quite fast to work with them, but there is too much logic in the components for my taste. With Redux for example, it's easier to decouple logic and side effects.
 
 I used Ant Design to help me with the layout/design and the Modal component.
 
 For visual testing, I added Storybook and I even added Storyshots to help catch unintended side effects. With Redux it's usually sufficient to test UI components because they have just props. With Hooks they have more logic so it would make sense to test with state changes, etc... For example with Enzyme.
+To start the storybook: `npm run storybook`
+Storyshots are integrated in the tests, they need to be updated if the new rendering differs from the snapshot.
 
 For images, I chose to load the image with the same width available and adjust height to preserve ratio. There are many things to consider here, especially if using a CDN.
 
@@ -19,7 +22,7 @@ There are many things that can be improved, here are some:
 
 - URL management, URLs don't update, this would be useful for browser back button for example and deep linking
 
-- Rendering optimization, not all posts should be rendered in the DOM. Especially with all the images.
+- Rendering optimization, not all posts should be rendered in the DOM. Especially with all the images. One easy solution would be to show only 10 and load more as the user is scrolling.
 
 - Build optimization, I didn't look into that here but it's something to be aware of for production
 
@@ -28,6 +31,8 @@ There are many things that can be improved, here are some:
 - Typescript, it can slow down a bit but it's better experience and maintainability over time
 
 - Server side rendering, for performance
+
+Florian
 
 ### Assignment
 

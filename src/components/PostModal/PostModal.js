@@ -1,15 +1,21 @@
 import React, {useContext} from 'react';
-import Post from './Post';
 import {Modal, Button, Col, Alert, Row} from 'antd';
-import SelectPostContext from '../context/SelectPostContext';
+import Post from '../Post/Post';
+import SelectPostContext from '../../context/SelectPostContext';
 import styles from './PostModal.module.css';
-import useRefWidth from './useRefWidth';
+import useRefWidth from '../useRefWidth';
 
 const PostModal = ({post, nextPost, previousPost, close, isDeleted}) => {
   const selectPost = useContext(SelectPostContext);
   const [width, measuredRef] = useRefWidth();
+
   return (
-    <Modal visible={!!post} onCancel={close} footer={null} width="90%" destroyOnClose>
+    <Modal
+      visible={!!post}
+      onCancel={close}
+      footer={null}
+      width="90%"
+      destroyOnClose>
       <Row type="flex" align="middle">
         <Col span={2} className={styles.arrowContainer}>
           <Button

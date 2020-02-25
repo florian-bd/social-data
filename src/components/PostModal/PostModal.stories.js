@@ -1,9 +1,9 @@
 import React from 'react';
 import {action} from '@storybook/addon-actions';
 import PostModal from './PostModal';
-import SelectPostContext from '../context/SelectPostContext';
-import EditPostContext from '../context/EditPostContext';
-import DeletePostContext from '../context/DeletePostContext';
+import SelectPostContext from '../../context/SelectPostContext';
+import EditPostContext from '../../context/EditPostContext';
+import DeletePostContext from '../../context/DeletePostContext';
 
 export default {
   title: 'Post Modal',

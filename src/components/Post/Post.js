@@ -1,9 +1,9 @@
 import React, {useContext, useState} from 'react';
-import SelectPostContext from '../context/SelectPostContext';
 import {Button, Input, Card, Icon} from 'antd';
-import DeletePostContext from '../context/DeletePostContext';
-import EditPostContext from '../context/EditPostContext';
-import {getImageUrl} from '../util/image';
+import SelectPostContext from '../../context/SelectPostContext';
+import DeletePostContext from '../../context/DeletePostContext';
+import EditPostContext from '../../context/EditPostContext';
+import {getImageUrl} from '../../util/image';
 import styles from './Post.module.css';
 
 const Post = ({post, width}) => {
@@ -20,12 +20,40 @@ const Post = ({post, width}) => {
     });
     setEditMode();
   };
+
   const defaultMedium =
     (post.data &&
       post.data.media &&
       post.data.media.length &&
       post.data.media[0]) ||
     {};
+
+  const actions = [
+    selectPost && (
+      <Icon
+        type="fullscreen"
+        key="fullscreen"
+        onClick={e => {
+          selectPost(post);
+        }}
+      />
+    ),
+    editPost && (
+      <Icon type="edit" key="edit" onClick={() => setEditMode(!editMode)} />
+    ),
+    deletePost && (
+      <Icon
+        type="delete"
+        theme="twoTone"
+        twoToneColor="#f5222d"
+        key="delete"
+        onClick={e => {
+          deletePost(post);
+        }}
+      />
+    ),
+  ];
+
   return (
     <Card
       cover={
@@ -36,31 +64,7 @@ const Post = ({post, width}) => {
           />
         )
       }
-      actions={[
-        selectPost && (
-          <Icon
-            type="fullscreen"
-            key="fullscreen"
-            onClick={e => {
-              selectPost(post);
-            }}
-          />
-        ),
-        editPost && (
-          <Icon type="edit" key="edit" onClick={() => setEditMode(!editMode)} />
-        ),
-        deletePost && (
-          <Icon
-            type="delete"
-            theme="twoTone"
-            twoToneColor="#f5222d"
-            key="delete"
-            onClick={e => {
-              deletePost(post);
-            }}
-          />
-        ),
-      ]}>
+      actions={actions}>
       {!editMode && <p>{post.description}</p>}
       {editMode && (
         <Input

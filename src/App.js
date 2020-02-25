@@ -1,6 +1,6 @@
 import React, {createContext, useState} from 'react';
 import './App.css';
-import Impacters from './components/Impacters';
+import Impacters from './components/Impacters/Impacters';
 import Layout from './components/Layout';
 import apiClient from './api/apiClient';
 import SelectUserContext from './context/SelectUserContext';

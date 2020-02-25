@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 
 const useListFetcher = ({fetch, dependency}) => {
   const [list, setList] = useState([]);
+
   useEffect(() => {
     // React useEffect callback cannot be async so use inner function
     async function fetchList() {

@@ -1,10 +1,11 @@
 import React from 'react';
-import Post from './Post';
-import styles from './Impacters.module.css';
-import useRefWidth from './useRefWidth';
+import Post from '../Post/Post';
+import styles from './Posts.module.css';
+import useRefWidth from '../useRefWidth';
 
 const Posts = ({posts}) => {
   const [width, measuredRef] = useRefWidth();
+
   return (
     <div ref={measuredRef}>
       {posts.map(post => (
