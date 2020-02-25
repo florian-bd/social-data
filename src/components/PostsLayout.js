@@ -42,6 +42,10 @@ const PostsLayout = ({user}) => {
         return p;
       }),
     );
+    // update selected post
+    if (selectedPost && post.id === selectedPost.id) {
+      setSelectedPost(post);
+    };
   };
 
   const deletePost = async post => {

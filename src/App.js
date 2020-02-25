@@ -1,4 +1,4 @@
-import React, {createContext, useState} from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Impacters from './components/Impacters/Impacters';
 import Layout from './components/Layout';
